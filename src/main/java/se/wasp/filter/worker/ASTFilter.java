@@ -5,10 +5,8 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import se.wasp.filter.util.*;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.io.Reader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,10 +18,7 @@ public class ASTFilter {
             .setHeader(CSVHeadersEnum.class)
             .build();
 
-    public static void filterInputCSV(String filePath,
-                                      ConstructEnum programConstruct,
-                                      VisibilityEnum visibility) throws IOException {
-        Reader in = new FileReader(filePath);
+    public static void filter(Reader in, ConstructEnum programConstruct, VisibilityEnum visibility) throws IOException {
         List<ASTRecord> filteredRecords = new LinkedList<>();
         Iterable<CSVRecord> records = csvFormat.parse(in);
         for (CSVRecord record : records) {
@@ -54,5 +49,12 @@ public class ASTFilter {
                     record.getFilePath(),
                     record.getExtraInfo());
         }
+    }
+
+    public static void filterCLIInput(String content,
+                                      ConstructEnum programConstruct,
+                                      VisibilityEnum visibility) throws IOException {
+        Reader in = new InputStreamReader(new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8)));
+        filter(in, programConstruct, visibility);
     }
 }
