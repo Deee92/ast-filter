@@ -18,7 +18,10 @@ public class ASTFilter {
             .setHeader(CSVHeadersEnum.class)
             .build();
 
-    public static void filter(Reader in, ConstructEnum programConstruct, VisibilityEnum visibility) throws IOException {
+    public static void filterCLIInput(String content,
+                                      ConstructEnum programConstruct,
+                                      VisibilityEnum visibility) throws IOException {
+        Reader in = new InputStreamReader(new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8)));
         List<ASTRecord> filteredRecords = new LinkedList<>();
         Iterable<CSVRecord> records = csvFormat.parse(in);
         for (CSVRecord record : records) {
@@ -51,10 +54,4 @@ public class ASTFilter {
         }
     }
 
-    public static void filterCLIInput(String content,
-                                      ConstructEnum programConstruct,
-                                      VisibilityEnum visibility) throws IOException {
-        Reader in = new InputStreamReader(new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8)));
-        filter(in, programConstruct, visibility);
-    }
 }
