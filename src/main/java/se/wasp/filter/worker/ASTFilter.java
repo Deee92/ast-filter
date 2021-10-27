@@ -26,7 +26,7 @@ public class ASTFilter {
         Iterable<CSVRecord> records = csvFormat.parse(in);
         for (CSVRecord record : records) {
             if (record.get(ELEMENT_TYPE).toLowerCase().contains(programConstruct.name().toLowerCase()) &
-                    record.get(EXTRA_INFO).toLowerCase().contains(visibility.name().toLowerCase())) {
+                    record.get(EXTRA_INFO).toLowerCase().contains("visibility=" + visibility.name().toLowerCase())) {
                 filteredRecords.add(new ASTRecord(
                         record.get(ELEMENT_TYPE),
                         record.get(LOCATION),
