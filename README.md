@@ -11,7 +11,7 @@ It currently supports public and private classes or methods.
 
 - `mvn clean install` creates `/target/<ast-filter-version-jar-with-dependencies>.jar`
 - Options:
-- ```
+```
   --find: method (default) OR class
   --visibility: public (default) OR private
   ```
