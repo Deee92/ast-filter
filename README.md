@@ -18,6 +18,10 @@ It currently supports public and private classes or methods.
 - pipe-in input from [AST parser](https://github.com/khaes-kth/Simple-Parser)
   - `parser -s /path/to/source/dir -f csv | filter -f method -v private > output.csv`
 
+#### See also
+
+Documentation generation with [doctor](https://github.com/Deee92/doctor)
+
 #### TODO
 
 - write tests

@@ -53,5 +53,4 @@ public class ASTFilter {
                     record.getExtraInfo());
         }
     }
-
 }
