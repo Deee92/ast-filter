@@ -25,16 +25,22 @@ public class ASTFilter {
         List<ASTRecord> filteredRecords = new LinkedList<>();
         Iterable<CSVRecord> records = csvFormat.parse(in);
         for (CSVRecord record : records) {
-            if (record.get(ELEMENT_TYPE).toLowerCase().contains(programConstruct.name().toLowerCase()) &
-                    record.get(EXTRA_INFO).toLowerCase().contains("visibility=" + visibility.name().toLowerCase())) {
+            if (record.get(NAME).toLowerCase().contains(programConstruct.name().toLowerCase()) &
+                    record.get(VISIBILITY).toLowerCase().contains(visibility.name().toLowerCase())) {
                 filteredRecords.add(new ASTRecord(
-                        record.get(ELEMENT_TYPE),
-                        record.get(LOCATION),
-                        record.get(PARENT_TYPE),
-                        record.get(PARENT_LOCATION),
+                        record.get(NAME),
+                        record.get(LINE_START),
+                        record.get(LINE_END),
+                        record.get(COLUMN_START),
+                        record.get(COLUMN_END),
+                        record.get(ABS_PATH),
                         record.get(VALUE),
-                        record.get(FILEPATH),
-                        record.get(EXTRA_INFO)
+                        record.get(PARENT_LINE_START),
+                        record.get(PARENT_LINE_END),
+                        record.get(PARENT_COLUMN_START),
+                        record.get(PARENT_COLUMN_END),
+                        record.get(PARENT_NAME),
+                        record.get(VISIBILITY)
                 ));
             }
         }
@@ -46,13 +52,19 @@ public class ASTFilter {
         CSVPrinter csvPrinter = new CSVPrinter(printStream, csvFormat);
         for (ASTRecord record : records) {
             csvPrinter.printRecord(
-                    record.getElementName(),
-                    record.getLocation(),
-                    record.getParentType(),
-                    record.getParentLocation(),
+                    record.getName(),
+                    record.getLineStart(),
+                    record.getLineEnd(),
+                    record.getColumnStart(),
+                    record.getColumnEnd(),
+                    record.getAbsPath(),
                     record.getValue(),
-                    record.getFilePath(),
-                    record.getExtraInfo());
+                    record.getParentLineStart(),
+                    record.getParentLineEnd(),
+                    record.getParentColumnStart(),
+                    record.getParentColumnEnd(),
+                    record.getParentName(),
+                    record.getVisibility());
         }
     }
 }

@@ -1,11 +1,17 @@
 package se.wasp.filter.util;
 
 public enum CSVHeadersEnum {
-    ELEMENT_TYPE,
-    LOCATION,
-    PARENT_TYPE,
-    PARENT_LOCATION,
+    NAME,
+    LINE_START,
+    LINE_END,
+    COLUMN_START,
+    COLUMN_END,
+    ABS_PATH,
     VALUE,
-    FILEPATH,
-    EXTRA_INFO
+    PARENT_LINE_START,
+    PARENT_LINE_END,
+    PARENT_COLUMN_START,
+    PARENT_COLUMN_END,
+    PARENT_NAME,
+    VISIBILITY
 }

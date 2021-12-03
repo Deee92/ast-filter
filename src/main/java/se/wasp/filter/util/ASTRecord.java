@@ -1,51 +1,88 @@
 package se.wasp.filter.util;
 
 public class ASTRecord {
-    String elementName;
-    String location;
-    String parentType;
-    String parentLocation;
+    String name;
+    String lineStart;
+    String lineEnd;
+    String columnStart;
+    String columnEnd;
+    String absPath;
     String value;
-    String filePath;
-    String extraInfo;
+    String parentLineStart;
+    String parentLineEnd;
+    String parentColumnStart;
+    String parentColumnEnd;
+    String parentName;
+    String visibility;
 
-    public ASTRecord(String elementName, String location, String parentType,
-                     String parentLocation, String value, String filePath, String extraInfo) {
-        this.elementName = elementName;
-        this.location = location;
-        this.parentType = parentType;
-        this.parentLocation = parentLocation;
+    public ASTRecord(String name, String lineStart, String lineEnd, String columnStart,
+                     String columnEnd, String absPath, String value, String parentLineStart,
+                     String parentLineEnd, String parentColumnStart, String parentColumnEnd,
+                     String parentName, String visibility) {
+        this.name = name;
+        this.lineStart = lineStart;
+        this.lineEnd = lineEnd;
+        this.columnStart = columnStart;
+        this.columnEnd = columnEnd;
+        this.absPath = absPath;
         this.value = value;
-        this.filePath = filePath;
-        this.extraInfo = extraInfo;
+        this.parentLineStart = parentLineStart;
+        this.parentLineEnd = parentLineEnd;
+        this.parentColumnStart = parentColumnStart;
+        this.parentColumnEnd = parentColumnEnd;
+        this.parentName = parentName;
+        this.visibility = visibility;
     }
 
-    public String getElementName() {
-        return elementName;
+    public String getName() {
+        return name;
     }
 
-    public String getLocation() {
-        return location;
+    public String getLineStart() {
+        return lineStart;
     }
 
-    public String getParentType() {
-        return parentType;
+    public String getLineEnd() {
+        return lineEnd;
     }
 
-    public String getParentLocation() {
-        return parentLocation;
+    public String getColumnStart() {
+        return columnStart;
+    }
+
+    public String getColumnEnd() {
+        return columnEnd;
+    }
+
+    public String getAbsPath() {
+        return absPath;
     }
 
     public String getValue() {
         return value;
     }
 
-    public String getFilePath() {
-        return filePath;
+    public String getParentLineStart() {
+        return parentLineStart;
     }
 
-    public String getExtraInfo() {
-        return extraInfo;
+    public String getParentLineEnd() {
+        return parentLineEnd;
     }
 
+    public String getParentColumnStart() {
+        return parentColumnStart;
+    }
+
+    public String getParentColumnEnd() {
+        return parentColumnEnd;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public String getVisibility() {
+        return visibility;
+    }
 }
