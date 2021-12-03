@@ -32,6 +32,7 @@ public class ASTFilter {
                         record.get(LOCATION),
                         record.get(PARENT_TYPE),
                         record.get(PARENT_LOCATION),
+                        record.get(VALUE),
                         record.get(FILEPATH),
                         record.get(EXTRA_INFO)
                 ));
@@ -49,6 +50,7 @@ public class ASTFilter {
                     record.getLocation(),
                     record.getParentType(),
                     record.getParentLocation(),
+                    record.getValue(),
                     record.getFilePath(),
                     record.getExtraInfo());
         }
